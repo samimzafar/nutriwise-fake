@@ -1,0 +1,39 @@
+image: node:18.17.0
+
+definitions:
+  steps:
+    - step: &build
+        name: Build
+        caches:
+          - node
+        script:
+          - npm ci --legacy-peer-deps
+          - npm run build
+        artifacts:
+          - build/**
+
+    - step: &deploy
+        name: Deploy to S3
+        script:
+          - apt-get update && apt-get install -y awscli
+          - aws s3 sync build/ s3://$S3_BUCKET --delete
+
+pipelines:
+  branches:
+    main:
+      - *build
+      - step:
+          <<: *deploy
+          deployment: Production
+          trigger: manual
+          script:
+            - export S3_BUCKET=nutriwise-admin
+            - aws s3 sync build/ s3://$S3_BUCKET --delete
+
+    development:
+      - *build
+      - step:
+          <<: *deploy
+          deployment: Production
+          script:
+            - export S3_BUCKET=nutriwise-admin-dev

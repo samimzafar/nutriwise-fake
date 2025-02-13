@@ -1,0 +1,27 @@
+/* Custom styles for the Products component */
+.ant-card {
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .ant-card-head {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #e8e8e8;
+  }
+  
+  .ant-card-body {
+    padding: 24px;
+  }
+  
+  .ant-spin {
+    margin: 24px 0;
+  }
+  
+  .ant-table {
+    margin-top: 16px;
+  }
+  
+  .ant-table-thead > tr > th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+  }

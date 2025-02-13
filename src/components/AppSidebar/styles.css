@@ -1,0 +1,72 @@
+.app-sidebar {
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* Custom styles for the menu */
+.sidebar-menu {
+  border-right: 0;
+  flex: 1; /* Take up remaining space */
+  overflow-y: auto; /* Allow scrolling if content overflows */
+}
+
+.sidebar-menu .ant-menu-item {
+  margin: 0;
+  width: 100%;
+}
+
+.sidebar-menu .ant-menu-item:hover {
+  background-color: #f0f0f0;
+}
+
+.sidebar-menu .ant-menu-item-selected {
+  background-color: transparent !important;
+}
+
+.sidebar-menu .ant-menu-item-selected a {
+  color: #6166ca !important; /* Active nav text color */
+}
+
+.sidebar-menu .ant-menu-item-selected .anticon {
+  color: #6166ca !important; /* Active nav icon color */
+}
+
+.sidebar-menu .ant-menu-item a {
+  color: inherit;
+}
+
+.sidebar-menu .ant-menu-item a:hover {
+  color: inherit;
+}
+
+/* Sidebar footer (logout) */
+.sidebar-footer {
+  display: flex;
+  align-items: center;
+  padding: 10px 10px;
+  background-color: rgba(240, 240, 240, 1);
+  border-radius: 8px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  position: fixed; /* Fix the logout button at the bottom */
+  bottom: 0;
+  left: 0;
+  width: 220px; /* Match the sidebar width */
+  z-index: 1; /* Ensure it stays above the menu */
+}
+.sidebar-footer:hover {
+  background-color: rgba(240, 240, 240, 0.8);
+}
