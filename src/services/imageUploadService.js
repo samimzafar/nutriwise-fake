@@ -1,11 +1,11 @@
 import axios from 'axios'
-import { BASE_URL, END_POINTS } from '../utils/constants'
+import { PROD_URL, END_POINTS } from '../utils/constants'
 
 const uploadImageService = async (file) => {
   const formData = new FormData()
   formData.append('file', file)
   const response = await axios.post(
-    `${BASE_URL}${END_POINTS.UPLOAD}`,
+    `${PROD_URL}/${END_POINTS.UPLOAD}`,
     formData,
     {
       headers: {
